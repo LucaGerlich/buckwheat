@@ -3,6 +3,7 @@
   <string name="app_name">Buckwheat</string>
   <string name="app_widget_extend_name">Buckwheat extend</string>
   <string name="app_widget_minimal_name">Buckwheat minimal</string>
+  <string name="notification_capture_service_name">Buckwheat payment capture</string>
   <string name="rest_budget_for_today">For today</string>
   <string name="new_daily_budget_short">New daily</string>
   <string name="new_daily_budget">New daily budget</string>
