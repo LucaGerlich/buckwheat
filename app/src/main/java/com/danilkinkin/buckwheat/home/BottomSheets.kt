@@ -9,6 +9,12 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.danilkinkin.buckwheat.base.BottomSheetWrapper
+import com.danilkinkin.buckwheat.capture.debug.NOTIFICATION_FIXTURES_SHEET
+import com.danilkinkin.buckwheat.capture.debug.NOTIFICATION_INSPECTOR_SHEET
+import com.danilkinkin.buckwheat.capture.debug.NotificationFixtureScreen
+import com.danilkinkin.buckwheat.capture.debug.NotificationInspectorScreen
+import com.danilkinkin.buckwheat.capture.debug.PAYMENT_SIMULATOR_SHEET
+import com.danilkinkin.buckwheat.capture.debug.PaymentSimulatorScreen
 import com.danilkinkin.buckwheat.data.AppViewModel
 import com.danilkinkin.buckwheat.data.PathState
 import com.danilkinkin.buckwheat.data.SpendsViewModel
@@ -191,6 +197,24 @@ fun BottomSheets(
                     coroutineScope.launch { state.hide() }
                 },
             )
+        }
+
+        BottomSheetWrapper(
+            name = NOTIFICATION_INSPECTOR_SHEET,
+        ) {
+            NotificationInspectorScreen()
+        }
+
+        BottomSheetWrapper(
+            name = NOTIFICATION_FIXTURES_SHEET,
+        ) {
+            NotificationFixtureScreen()
+        }
+
+        BottomSheetWrapper(
+            name = PAYMENT_SIMULATOR_SHEET,
+        ) {
+            PaymentSimulatorScreen()
         }
     }
 

@@ -4,6 +4,8 @@ import androidx.room.*
 import androidx.room.migration.AutoMigrationSpec
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.danilkinkin.buckwheat.capture.data.NotificationFixture
+import com.danilkinkin.buckwheat.capture.data.NotificationFixtureDao
 import com.danilkinkin.buckwheat.data.dao.StorageDao
 import com.danilkinkin.buckwheat.data.dao.TransactionDao
 import com.danilkinkin.buckwheat.data.entities.Storage
@@ -48,12 +50,13 @@ val AutoMigration4to5: Migration = object : Migration(4, 5) {
 }
 
 @Database(
-    entities = [Transaction::class, Storage::class],
-    version = 5,
+    entities = [Transaction::class, Storage::class, NotificationFixture::class],
+    version = 6,
     autoMigrations = [
         AutoMigration(from = 1, to = 2, spec = AutoMigration1to2::class),
         AutoMigration(from = 2, to = 3, spec = AutoMigration2to3::class),
         AutoMigration(from = 3, to = 4, spec = AutoMigration3to4::class),
+        AutoMigration(from = 5, to = 6),
     ],
     exportSchema = true
 )
@@ -63,6 +66,8 @@ abstract class DatabaseModule : RoomDatabase() {
     abstract fun transactionDao(): TransactionDao
 
     abstract fun storageDao(): StorageDao
+
+    abstract fun notificationFixtureDao(): NotificationFixtureDao
 
     companion object {
         val MANUAL_MIGRATIONS = arrayOf<Migration>(AutoMigration4to5)
