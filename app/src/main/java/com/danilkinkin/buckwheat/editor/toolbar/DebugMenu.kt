@@ -22,6 +22,9 @@ import com.danilkinkin.buckwheat.LocalWindowInsets
 import com.danilkinkin.buckwheat.base.ButtonRow
 import com.danilkinkin.buckwheat.base.Divider
 import com.danilkinkin.buckwheat.base.LocalBottomSheetScrollState
+import com.danilkinkin.buckwheat.capture.debug.NOTIFICATION_FIXTURES_SHEET
+import com.danilkinkin.buckwheat.capture.debug.NOTIFICATION_INSPECTOR_SHEET
+import com.danilkinkin.buckwheat.capture.debug.PAYMENT_SIMULATOR_SHEET
 import com.danilkinkin.buckwheat.data.AppViewModel
 import com.danilkinkin.buckwheat.data.PathState
 import com.danilkinkin.buckwheat.data.SpendsViewModel
@@ -105,6 +108,31 @@ fun DebugMenu(
                 iconInset = false,
                 onClick = {
                     throw Error("Test crash app")
+                },
+            )
+            Header("Payment capture")
+            ButtonRow(
+                text = "Open notification inspector",
+                iconInset = false,
+                onClick = {
+                    appViewModel.openSheet(PathState(NOTIFICATION_INSPECTOR_SHEET))
+                    onClose()
+                },
+            )
+            ButtonRow(
+                text = "Open notification fixtures",
+                iconInset = false,
+                onClick = {
+                    appViewModel.openSheet(PathState(NOTIFICATION_FIXTURES_SHEET))
+                    onClose()
+                },
+            )
+            ButtonRow(
+                text = "Open payment simulator",
+                iconInset = false,
+                onClick = {
+                    appViewModel.openSheet(PathState(PAYMENT_SIMULATOR_SHEET))
+                    onClose()
                 },
             )
             Header("Debug budget")
