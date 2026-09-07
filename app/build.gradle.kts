@@ -3,7 +3,7 @@ plugins {
     id("kotlin-android")
     id("dagger.hilt.android.plugin")
     id("com.google.devtools.ksp")
-    id("org.jetbrains.kotlin.plugin.compose") version "2.2.0"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.2.10"
 }
 
 android {
